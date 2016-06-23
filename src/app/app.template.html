@@ -1,27 +1,26 @@
 <md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5">
     <nav>
-        <h1><a class="md-button md-ink-ripple" [routerLink]="['./home']" md-button=""><span class="">xChange Center </span><sup class="">by Neekware Inc.</sup></a></h1>
+        <h1><a class="md-button md-ink-ripple" [routerLink]="['./home']" md-button="">xChange Center <sup class="">by Neekware Inc.</sup></a></h1>
         <button class="main-nav-button main-nav-mobile-trigger l-right md-button md-ink-ripple" type="button" aria-label="View Menu"
-            ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button"><span class="">Site Menu </span><span class="icon icon-arrow-drop-down "></span></button>
-        <ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''">
+            (click)="toggleMainMenu($event)" md-button="md-button">Site Menu <span class="icon icon-arrow-drop-down "></span></button>
+        <ul [ngClass]="showMainNav? 'is-visible' : ''">
             <li class="l-left">
-                <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['./']"  md-button=""><span class="">Dashboard</span></a>
+                <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['./']"  md-button="">Dashboard</a>
             </li>
             <li class="l-left">
-                <a class="main-nav-button md-button md-ink-ripple" href="/docs/ts/latest/" md-button=""><span class="">Portfolio</span></a>
+                <a class="main-nav-button md-button md-ink-ripple" href="/docs/ts/latest/" md-button="">Portfolio</a>
             </li>
             <li class="l-left">
-                <a class="main-nav-button md-button md-ink-ripple" href="/events.html" md-button=""><span class="">News</span></a>
+                <a class="main-nav-button md-button md-ink-ripple" href="/events.html" md-button="">News</a>
             </li>
             <li class="l-right">
-                <a class="main-nav-button md-button md-ink-ripple" href="/docs/ts/latest/quickstart.html" md-button=""><span class="">Get Started</span></a>
+                <a class="main-nav-button md-button md-ink-ripple" href="/docs/ts/latest/quickstart.html" md-button="">Get Started</a>
             </li>
         </ul>
     </nav>
 </md-toolbar>
 
 <router-outlet></router-outlet>
-
 
 <div class="main-footer">
     <nav class="background-blue-grey-900 grid-fluid">

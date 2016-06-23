@@ -10,6 +10,7 @@ import { AppState } from './app.service';
 })
 export class App {
   name: string = 'xChange';
+  showMainNav: boolean = false;
 
   constructor(
     public appState: AppState) {
@@ -17,7 +18,10 @@ export class App {
   }
 
   ngOnInit() {
-    console.log('Initial App State', this.appState.state);
+  }
+
+  toggleMainMenu(event) {
+    this.showMainNav = !this.showMainNav;
   }
 
 }
