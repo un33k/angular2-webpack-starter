@@ -1,0 +1,68 @@
+<md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5">
+    <nav>
+        <h1><a class="md-button md-ink-ripple" href="/" md-button=""><span class="">xChange Center </span><sup class="">by Neekware Inc.</sup></a></h1>
+        <button class="main-nav-button main-nav-mobile-trigger l-right md-button md-ink-ripple" type="button" aria-label="View Menu"
+            ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button"><span class="">Site Menu </span><span class="icon icon-arrow-drop-down "></span></button>
+        <ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''">
+            <li class="l-left">
+                <a class="main-nav-button md-button md-ink-ripple" href="/features.html" md-button=""><span class="">Dashboard</span></a>
+            </li>
+            <li class="l-left">
+                <a class="main-nav-button md-button md-ink-ripple" href="/docs/ts/latest/" md-button=""><span class="">Portfolio</span></a>
+            </li>
+            <li class="l-left">
+                <a class="main-nav-button md-button md-ink-ripple" href="/events.html" md-button=""><span class="">News</span></a>
+            </li>
+            <li class="l-left">
+                <a class="main-nav-button md-button md-ink-ripple" href="/about" md-button=""><span class="">About</span></a>
+            </li>
+            <li class="l-right">
+                <a class="main-nav-button md-button md-ink-ripple" href="/docs/ts/latest/quickstart.html" md-button=""><span class="">Get Started</span></a>
+            </li>
+        </ul>
+    </nav>
+</md-toolbar>
+
+<router-outlet></router-outlet>
+
+
+<div class="main-footer">
+    <nav class="background-blue-grey-900 grid-fluid">
+        <div class="c3 main-footer-branding">
+            <div class="logo-inverse-large"></div>
+        </div>
+        <div class="c3">
+            <h3 class="text-headline">RESOURCES</h3>
+            <ul class="text-body">
+                <!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries-->
+                <!--li <a href="/libraries.html">Libraries</a>-->
+                <li><a href="/about/">About</a></li>
+                <li><a href="/resources/">Books &amp; Training</a></li>
+                <li><a href="/resources/">Tools &amp; Libraries</a></li>
+                <li><a href="/resources/">Community</a></li>
+                <li><a href="/presskit.html">Press Kit</a></li>
+            </ul>
+        </div>
+        <div class="c3">
+            <h3 class="text-headline">HELP</h3>
+            <ul class="text-body">
+                <li><a href="http://stackoverflow.com/questions/tagged/angular2">Stack Overflow</a></li>
+                <li><a href="https://gitter.im/angular/angular">Gitter</a></li>
+                <li><a href="https://groups.google.com/forum/#!forum/angular"> Google Group</a></li>
+                <li><a href="https://github.com/angular/angular/issues"> Report Issues</a></li>
+                <li><a class="footer-feedback" ng-click="appCtrl.openFeedback()" aria-label="Submit feedback on this page"> Site Feedback</a></li>
+            </ul>
+        </div>
+        <div class="c3">
+            <h3 class="text-headline">COMMUNITY</h3>
+            <ul class="text-body">
+                <li><a href="/events.html">Events</a></li>
+                <li><a href="http://www.meetup.com/topics/angularjs/">Meetups</a></li>
+                <li><a href="https://twitter.com/angularjs"> Twitter</a></li>
+                <li><a href="https://github.com/angular/angular"> GitHub</a></li>
+                <li><a href="/contribute.html"> Contribute</a></li>
+            </ul>
+        </div>
+    </nav>
+    <footer class="background-steel"><small class="text-caption">xChange ©2016</small></footer>
+</div>

@@ -1,41 +1,54 @@
-<div class="card-container">
-  <h1 x-large class="sample-content">Your Content Here</h1>
-
-  <div>
-    For material design components use the <a href="https://github.com/AngularClass/angular2-webpack-starter/tree/material2"><b>material2</b></a> branch
+<header class="background-sky">
+  <div class="hero background-superhero-paper is-large">
+    <h1 class="text-headline hero-logo">Stock Market Portal.<br>Track - Analyze - Profit.</h1>
+    <div class="hero-cta"><a class="md-raised button button-large button-plain md-button md-ink-ripple" ng-transclude="" href="/docs/ts/latest/quickstart.html"
+        md-button="md-button"><span class="">Get Started</span></a></div>
   </div>
-
-  <hr>
-
-  <div>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
+</header>
+<article class="l-content ">
+  <div class="home-rows">
+    <!-- Group 1-->
+    <div layout="row" layout-xs="column" class="home-row layout-xs-column layout-row">
+      <div class="promo-img-container promo-1">
+        <div><img src="assets/img/home/responsive-framework.png"></div>
+      </div>
+      <div class="text-container">
+        <div class="text-block promo-1-desc l-pad-top-2">
+          <h3 class="text-headline">Portal Access Across All Platforms</h3>
+          <p class="text-body">Access your portfolios anywhere, anytime and on any device.  Access on mobile, tablet, laptop or desktop is easy.
+            Just open the browser, point to xchange.center and you are set.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Group 2-->
+    <div layout="row" layout-xs="column" class="home-row layout-xs-column layout-row">
+      <div class="text-container">
+        <div class="text-block">
+          <h3 class="text-headline">Monitor &amp; Analyse</h3>
+          <p class="text-body">Stay informed and make speedy decisions based on near-real-time analysis of relative data and news.</p><br>
+          <p class="text-body">xChange portal puts you in control.  Make informative decisions by having relative data made aviable to you when it matters.</p>
+        </div>
+      </div>
+      <div class="promo-img-container promo-2">
+        <div><img src="assets/img/home/speed-performance.png"></div>
+      </div>
+    </div>
+    <!-- Group 3-->
+    <div layout="row" layout-xs="column" class="home-row layout-xs-column layout-row">
+      <div class="promo-img-container promo-3">
+        <div><img src="assets/img/home/charts-trends.png"></div>
+      </div>
+      <div class="text-container">
+        <div class="text-block promo-3-desc">
+          <h3 class="text-headline">Incredible Tooling</h3>
+          <p class="text-body">Build one or more portfolios and get immediate access to historical data, analyze trends
+          moving average, yields and more.  Include your important positions in a common dashboard for easy access.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="cta-bar"><a class="button button-large button-shield md-raised md-primary md-button md-ink-ripple" ng-transclude="" href="/docs/ts/latest/quickstart.html"
+        md-button="md-button"><span class="">Get Started</span></a></div>
   </div>
-
-  <hr>
-
-  <div>
-    <h4>Local State</h4>
-
-    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
-
-      <input
-        [value]="localState.value"
-        (input)="localState.value = $event.target.value"
-        placeholder="Submit Local State to App State"
-        autofocus>
-
-      <button md-raised-button color="primary">Submit Value</button>
-    </form>
-    <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" [(ngModel)]="localState.value" autofocus>
-      -->
-
-    <pre>this.localState = {{ localState | json }}</pre>
-
-  </div>
-
-</div>
+</article>
