@@ -22,3 +22,26 @@ span.active {
 .main-footer .logo-inverse-large {
     background: url("/assets/img/logos/xchange-logo-gray.png") 0 0 no-repeat;
 }
+
+.main-nav .main-nav-mobile-trigger {
+    padding: 0px 12px 0px 12px;
+}
+
+.main-nav .hamberger-icon md-icon {
+    font-size: 32px;
+    height: 32px;
+    width: 32px;
+}
+
+.main-nav ul .main-nav-button {
+    padding: 0 0 0 22px;
+}
+
+.main-nav ul .main-nav-button:hover {
+  background: rgba(158, 158, 158, 0.21);
+}
+
+.main-nav ul .main-nav-button .main-nav-mobile-trigger {
+    padding: 0 0 0 5px;
+    font-size: 22px;
+}

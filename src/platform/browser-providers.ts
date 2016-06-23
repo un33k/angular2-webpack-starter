@@ -15,6 +15,7 @@ import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { provideWebpack } from '@angularclass/webpack-toolkit';
 import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callback';
 
+import { MATERIAL_PROVIDERS } from './angular-material2';
 
 import { routes, asyncRoutes, prefetchRouteCallbacks } from '../app/app.routes';
 /*
@@ -31,6 +32,7 @@ export const APPLICATION_PROVIDERS = [
   providePrefetchIdleCallbacks(prefetchRouteCallbacks),
 
   ...HTTP_PROVIDERS,
+  ...MATERIAL_PROVIDERS,
 
   { provide: LocationStrategy, useClass: HashLocationStrategy }
 ];

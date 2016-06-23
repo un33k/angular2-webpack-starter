@@ -11,6 +11,7 @@ import { AppState } from './app.service';
 export class App {
   name: string = 'xChange';
   showMainNav: boolean = false;
+  mainNavIcon: string = 'menu';
 
   constructor(
     public appState: AppState) {
@@ -22,6 +23,12 @@ export class App {
 
   toggleMainMenu(event) {
     this.showMainNav = !this.showMainNav;
+    if (this.showMainNav){
+      this.mainNavIcon = 'close';
+    } else {
+      this.mainNavIcon = 'menu';
+    }
+    
   }
 
 }

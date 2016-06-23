@@ -8,10 +8,13 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 // Angular 2 forms
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
+import { MATERIAL_DIRECTIVES } from './angular-material2';
+
 // application_directives: directives that are global through out the application
 export const APPLICATION_DIRECTIVES = [
   ...ROUTER_DIRECTIVES,
-  ...REACTIVE_FORM_DIRECTIVES
+  ...REACTIVE_FORM_DIRECTIVES,
+  ...MATERIAL_DIRECTIVES
 ];
 
 export const DIRECTIVES = [
