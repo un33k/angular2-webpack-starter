@@ -1,20 +1,17 @@
 <md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5">
     <nav>
-        <h1><a class="md-button md-ink-ripple" href="/" md-button=""><span class="">xChange Center </span><sup class="">by Neekware Inc.</sup></a></h1>
+        <h1><a class="md-button md-ink-ripple" [routerLink]="['./home']" md-button=""><span class="">xChange Center </span><sup class="">by Neekware Inc.</sup></a></h1>
         <button class="main-nav-button main-nav-mobile-trigger l-right md-button md-ink-ripple" type="button" aria-label="View Menu"
             ng-click="appCtrl.toggleMainMenu($event)" md-button="md-button"><span class="">Site Menu </span><span class="icon icon-arrow-drop-down "></span></button>
         <ul ng-class="appCtrl.showMainNav ? 'is-visible' : ''">
             <li class="l-left">
-                <a class="main-nav-button md-button md-ink-ripple" href="/features.html" md-button=""><span class="">Dashboard</span></a>
+                <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['./']"  md-button=""><span class="">Dashboard</span></a>
             </li>
             <li class="l-left">
                 <a class="main-nav-button md-button md-ink-ripple" href="/docs/ts/latest/" md-button=""><span class="">Portfolio</span></a>
             </li>
             <li class="l-left">
                 <a class="main-nav-button md-button md-ink-ripple" href="/events.html" md-button=""><span class="">News</span></a>
-            </li>
-            <li class="l-left">
-                <a class="main-nav-button md-button md-ink-ripple" href="/about" md-button=""><span class="">About</span></a>
             </li>
             <li class="l-right">
                 <a class="main-nav-button md-button md-ink-ripple" href="/docs/ts/latest/quickstart.html" md-button=""><span class="">Get Started</span></a>
@@ -36,7 +33,7 @@
             <ul class="text-body">
                 <!-- TODO: (ericjim) make a libraries page to showcase all angular 2 libraries-->
                 <!--li <a href="/libraries.html">Libraries</a>-->
-                <li><a href="/about/">About</a></li>
+                <li><a [routerLink]="['./about']">About</a></li>
                 <li><a href="/resources/">Books &amp; Training</a></li>
                 <li><a href="/resources/">Tools &amp; Libraries</a></li>
                 <li><a href="/resources/">Community</a></li>
