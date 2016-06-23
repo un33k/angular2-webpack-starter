@@ -10,6 +10,8 @@
 
 .hero .hero-logo:after {
     background: url("/assets/img/logos/xchange-logo.png") top center no-repeat;
+    top: -18px;
+    height: 235px;
 }
 
 .button.button-shield {
