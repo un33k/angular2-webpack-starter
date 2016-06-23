@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AppState } from './app.service';
 
@@ -13,12 +14,16 @@ export class App {
   showMainNav: boolean = false;
   mainNavIcon: string = 'menu';
 
-  constructor(
-    public appState: AppState) {
+  constructor(public appState: AppState, public router: Router) {
 
   }
 
   ngOnInit() {
+    this.router.events.subscribe(() => {
+      this.showMainNav = false;
+      window.scrollTo(0, 0);
+      console.log('router changed');
+    }); 
   }
 
   toggleMainMenu(event) {
