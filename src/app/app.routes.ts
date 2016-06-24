@@ -1,13 +1,13 @@
 import { RouterConfig } from '@angular/router';
 import { HomeComponent } from './home';
-import { NoContent } from './no-content';
+import { UnfoundComponent } from './unfound';
 
 export const routes: RouterConfig = [
   { path: '',      component: HomeComponent },
   { path: 'home',  component: HomeComponent },
   // make sure you match the component type string to the require in asyncRoutes
   { path: 'about', component: 'AboutComponent' },
-  { path: '**',    component: NoContent },
+  { path: '**',    component: UnfoundComponent },
 ];
 
 // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
@@ -23,6 +23,5 @@ export const asyncRoutes: AsyncRoutes = {
 export const prefetchRouteCallbacks: Array<Es6PromiseLoader | Function> = [
   asyncRoutes['AboutComponent'] // es6-promise-loader returns a function
 ];
-
 
 // Es6PromiseLoader and AsyncRoutes interfaces are defined in custom-typings
