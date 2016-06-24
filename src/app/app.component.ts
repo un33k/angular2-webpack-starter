@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { AppState } from './app.service';
 
@@ -10,7 +10,7 @@ import { AppState } from './app.service';
   templateUrl: './app.template.html',
   encapsulation: ViewEncapsulation.None
 })
-export class App {
+export class App implements OnInit {
   name: string = 'xChange Portal';
   showMainNav: boolean = false;
   mainNavIcon: string = 'menu';
@@ -20,11 +20,13 @@ export class App {
   }
 
   ngOnInit() {
-    this.router.events.debounceTime(50).subscribe((navState) => {
-      this.title.setTitle(this.getRouteTitle(navState.url));
-      this.showMainNav = false;
-      window.scrollTo(0, 0);
-      console.log('router changed ' + navState.url);
+    this.router.events.subscribe( stateEvent => {
+	    if (stateEvent instanceof NavigationEnd) {
+        this.title.setTitle(this.getRouteTitle(stateEvent.url));
+        this.showMainNav = false;
+        window.scrollTo(0, 0);
+        console.log('router changed ' + stateEvent.url);
+      }
     }); 
   }
 
