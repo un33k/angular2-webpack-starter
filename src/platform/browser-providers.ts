@@ -17,6 +17,8 @@ import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callbac
 
 import { MATERIAL_PROVIDERS } from './angular-material2';
 
+import { Title } from '@angular/platform-browser';
+
 import { routes, asyncRoutes, prefetchRouteCallbacks } from '../app/app.routes';
 /*
 * Application Providers/Directives/Pipes
@@ -34,7 +36,8 @@ export const APPLICATION_PROVIDERS = [
   ...HTTP_PROVIDERS,
   ...MATERIAL_PROVIDERS,
 
-  { provide: LocationStrategy, useClass: PathLocationStrategy }
+  { provide: LocationStrategy, useClass: PathLocationStrategy },
+  { provide: Title, useClass: Title }
 ];
 
 export const PROVIDERS = [
