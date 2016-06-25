@@ -19,7 +19,7 @@ import { MATERIAL_PROVIDERS } from './angular-material2';
 
 import { Title } from '@angular/platform-browser';
 
-import { routes, asyncRoutes, prefetchRouteCallbacks } from '../app/app.routes';
+import { topRoutes, asyncRoutes, prefetchRouteCallbacks } from '../app/app.routes';
 /*
 * Application Providers/Directives/Pipes
 * providers/directives/pipes that only live in our browser environment
@@ -29,7 +29,7 @@ export const APPLICATION_PROVIDERS = [
   disableDeprecatedForms(),
   provideForms(),
 
-  provideRouter(routes),
+  provideRouter(topRoutes),
   provideWebpack(asyncRoutes),
   providePrefetchIdleCallbacks(prefetchRouteCallbacks),
 

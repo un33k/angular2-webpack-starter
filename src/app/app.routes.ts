@@ -1,13 +1,18 @@
-import { RouterConfig } from '@angular/router';
+import { Route } from '@angular/router';
 import { HomeComponent } from './home';
 import { UnfoundComponent } from './unfound';
 
-export const routes: RouterConfig = [
-  { path: '',      component: HomeComponent },
-  { path: 'home',  component: HomeComponent },
+interface AppRouterConfig extends Route {
+  data?: any;
+}
+
+const appTitle: string = 'xChange Portal';
+export const topRoutes: Array<AppRouterConfig> = [
+  { path: '',      component: HomeComponent, data: {title: appTitle} },
+  { path: 'home',  component: HomeComponent, data: {title: appTitle} },
   // make sure you match the component type string to the require in asyncRoutes
-  { path: 'about', component: 'AboutComponent' },
-  { path: '**',    component: UnfoundComponent },
+  { path: 'about', component: 'AboutComponent', data: {title: `${appTitle} | About`} },
+  { path: '**',    component: UnfoundComponent, data: {title: `${appTitle} | Not Found (404)`} },
 ];
 
 // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
