@@ -1,6 +1,14 @@
-import { Route } from '@angular/router';
+import { Route, provideRouter } from '@angular/router';
 import { HomeComponent } from './home';
 import { UnfoundComponent } from './unfound';
+
+// AngularClass
+import { provideWebpack } from '@angularclass/webpack-toolkit';
+import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callback';
+
+import { authRoutes, AUTH_PROVIDERS } from './auth/auth.routes';
+
+import { CanDeactivateGuard } from './app.interfaces';
 
 interface AppRouterConfig extends Route {
   data?: any;
@@ -10,6 +18,8 @@ const appTitle: string = 'xChange Portal';
 export const topRoutes: Array<AppRouterConfig> = [
   { path: '',      component: HomeComponent, data: {title: appTitle} },
   { path: 'home',  component: HomeComponent, data: {title: appTitle} },
+  ...authRoutes,
+
   // make sure you match the component type string to the require in asyncRoutes
   { path: 'about', component: 'AboutComponent', data: {title: `${appTitle} | About`} },
   { path: '**',    component: UnfoundComponent, data: {title: `${appTitle} | Not Found (404)`} },
@@ -30,3 +40,11 @@ export const prefetchRouteCallbacks: Array<Es6PromiseLoader | Function> = [
 ];
 
 // Es6PromiseLoader and AsyncRoutes interfaces are defined in custom-typings
+
+export const APP_ROUTER_PROVIDERS = [
+  provideRouter(topRoutes),
+  provideWebpack(asyncRoutes),
+  providePrefetchIdleCallbacks(prefetchRouteCallbacks),
+  AUTH_PROVIDERS,
+  CanDeactivateGuard
+];

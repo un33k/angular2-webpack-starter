@@ -16,8 +16,10 @@ export class App implements OnInit {
   showMainNav: boolean = false;
   mainNavIcon: string = 'menu';
 
-  constructor(public appState: AppState, private router: Router, private title: Title) {
-
+  constructor(
+    public appState: AppState,
+    private router: Router,
+    private title: Title) {
   }
 
   ngOnInit() {

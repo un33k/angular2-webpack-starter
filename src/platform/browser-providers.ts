@@ -11,15 +11,12 @@ import { provideRouter } from '@angular/router';
 // Angular 2 forms
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
-// AngularClass
-import { provideWebpack } from '@angularclass/webpack-toolkit';
-import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callback';
-
 import { MATERIAL_PROVIDERS } from './angular-material2';
 
 import { Title } from '@angular/platform-browser';
 
-import { topRoutes, asyncRoutes, prefetchRouteCallbacks } from '../app/app.routes';
+import { APP_ROUTER_PROVIDERS } from '../app/app.routes';
+
 /*
 * Application Providers/Directives/Pipes
 * providers/directives/pipes that only live in our browser environment
@@ -29,10 +26,7 @@ export const APPLICATION_PROVIDERS = [
   disableDeprecatedForms(),
   provideForms(),
 
-  provideRouter(topRoutes),
-  provideWebpack(asyncRoutes),
-  providePrefetchIdleCallbacks(prefetchRouteCallbacks),
-
+  ...APP_ROUTER_PROVIDERS,
   ...HTTP_PROVIDERS,
   ...MATERIAL_PROVIDERS,
 
