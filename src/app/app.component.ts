@@ -42,7 +42,7 @@ export class App implements OnInit {
     var title: string = this.name;
     for (var item of knownRoutes) {
       if (url == `/${item.path}` && 'data' in item && 'title' in item.data) {
-        title = item.data.title;
+        title = `${title} | ${item.data.title}`;
         break;
       }
       console.log(title);

@@ -14,15 +14,15 @@ interface AppRouterConfig extends Route {
   data?: any;
 }
 
-const appTitle: string = 'xChange Portal';
 export const topRoutes: Array<AppRouterConfig> = [
-  { path: '',      component: HomeComponent, data: {title: appTitle} },
-  { path: 'home',  component: HomeComponent, data: {title: appTitle} },
+  { path: '',      component: HomeComponent },
+  { path: 'home',  component: HomeComponent },
+
   ...authRoutes,
 
   // make sure you match the component type string to the require in asyncRoutes
-  { path: 'about', component: 'AboutComponent', data: {title: `${appTitle} | About`} },
-  { path: '**',    component: UnfoundComponent, data: {title: `${appTitle} | Not Found (404)`} },
+  { path: 'about', component: 'AboutComponent', data: {title: 'About'} },
+  { path: '**',    component: UnfoundComponent, data: {title: 'Not Found (404)'} },
 ];
 
 // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
