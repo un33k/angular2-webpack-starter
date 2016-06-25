@@ -27,6 +27,7 @@ export class App implements OnInit {
 	    if (stateEvent instanceof NavigationEnd) {
         this.title.setTitle(this.getRouteTitle(stateEvent.url));
         this.showMainNav = false;
+        this.mainNavIcon = 'menu';
         window.scrollTo(0, 0);
         console.log('router changed ' + stateEvent);
       }
