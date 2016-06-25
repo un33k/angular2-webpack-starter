@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'about',
   styleUrls: ['./about.style.css'],
   templateUrl: './about.template.html'
-
 })
 export class AboutComponent {
   constructor() {
