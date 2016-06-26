@@ -1,19 +1,19 @@
 <md-toolbar scroll-y-offset-element="scroll-y-offset-element" class="main-nav background-regal l-pinned-top l-layer-5">
     <nav>
-        <h1><a class="md-button md-ink-ripple" [routerLink]="['./home']" md-button="">xChange Center <sup class="">by Neekware Inc.</sup></a></h1>
+        <h1><a class="md-button md-ink-ripple" [routerLink]="['./home']">xChange Center <sup class="">by Neekware Inc.</sup></a></h1>
         <button class="main-nav-button main-nav-mobile-trigger l-right md-button md-ink-ripple hamberger-icon" type="button" aria-label="View Menu"
             (click)="toggleMainMenu($event)" md-button="md-button">
                     <md-icon class="">{{ mainNavIcon }}</md-icon>
         </button>
         <ul [ngClass]="showMainNav? 'is-visible' : ''">
             <li class="l-left">
-                <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['/about']"  md-button="">
+                <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['/about']"  [routerLinkActive]="['is-active']">
 	                <md-icon class="main-nav-mobile-trigger">keyboard_arrow_right</md-icon>
                     About
                 </a>
             </li>
             <li class="l-right">
-                <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['/login']"  md-button="">
+                <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['/login']"  [routerLinkActive]="['is-active']">
 	                <md-icon class="main-nav-mobile-trigger">keyboard_arrow_right</md-icon>
                     Login
                 </a>

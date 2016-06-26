@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
+
+import {Subscription} from 'rxjs/Subscription';
 
 import { AppState } from './app.service';
 import { topRoutes as knownRoutes} from './app.routes';
@@ -11,10 +13,11 @@ import { topRoutes as knownRoutes} from './app.routes';
   templateUrl: './app.template.html',
   encapsulation: ViewEncapsulation.None
 })
-export class App implements OnInit {
+export class App implements OnInit, OnDestroy {
   name: string = 'xChange Portal';
   showMainNav: boolean = false;
   mainNavIcon: string = 'menu';
+  private subscription: Subscription;
 
   constructor(
     public appState: AppState,
@@ -23,15 +26,19 @@ export class App implements OnInit {
   }
 
   ngOnInit() {
-    this.router.events.subscribe( stateEvent => {
-	    if (stateEvent instanceof NavigationEnd) {
-        this.title.setTitle(this.getRouteTitle(stateEvent.url));
+   this.subscription = this.router.events.subscribe(s => {
+	    if (s instanceof NavigationEnd) {
+        this.title.setTitle(this.getRouteTitle(s.url));
         this.showMainNav = false;
         this.mainNavIcon = 'menu';
         window.scrollTo(0, 0);
-        console.log('router changed ' + stateEvent);
+        console.log('router changed ' + s);
       }
     }); 
+  }
+
+  ngOnDestroy(): any {
+    this.subscription.unsubscribe(); 
   }
 
   toggleMainMenu(event) {

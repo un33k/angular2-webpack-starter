@@ -38,7 +38,8 @@ span.active {
 }
 
 .main-nav ul .main-nav-button:hover {
-  background: rgba(158, 158, 158, 0.21);
+//   background: rgba(158, 158, 158, 0.21);
+    background: #1c5dbb;
 }
 
 .main-nav ul .main-nav-button .main-nav-mobile-trigger {
@@ -52,4 +53,8 @@ span.active {
 
 .hero .inner-header {
     margin: 0px;
+}
+
+.is-active {
+    background: #1c5dbb !important;
 }
