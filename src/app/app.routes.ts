@@ -2,6 +2,8 @@ import { Route, provideRouter } from '@angular/router';
 import { HomeComponent } from './home';
 import { UnfoundComponent } from './unfound';
 
+import { AuthGuard } from './auth/auth.guard';
+
 // AngularClass
 import { provideWebpack } from '@angularclass/webpack-toolkit';
 import { providePrefetchIdleCallbacks } from '@angularclass/request-idle-callback';
@@ -15,13 +17,13 @@ interface AppRouterConfig extends Route {
 }
 
 export const topRoutes: Array<AppRouterConfig> = [
-  { path: '',      component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'home',  component: HomeComponent },
 
   ...authRoutes,
 
   // make sure you match the component type string to the require in asyncRoutes
-  { path: 'about', component: 'AboutComponent', data: {title: 'About'} },
+  { path: 'about', component: 'AboutComponent', data: {title: 'About'}, canActivate: [AuthGuard] },
   { path: '**',    component: UnfoundComponent, data: {title: 'Not Found (404)'} },
 ];
 

@@ -58,3 +58,13 @@ span.active {
 .is-active {
     background: #1c5dbb !important;
 }
+
+@media handheld and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 800px), screen and (max-width: 960px) {
+    .is-active {
+        background: #0143A3 !important;
+        font-style: italic !important;
+    }
+    .main-nav ul .main-nav-button:hover {
+        font-style: italic !important;
+    }
+}
