@@ -9,6 +9,10 @@ span.active {
 
 @import 'node_modules/angular.io/public/resources/css/main';
 
+$mdi-font-path: "/assets/fonts";
+$mdi-font-size-base: 48px;
+@import 'node_modules/mdi/scss/materialdesignicons.scss';
+
 .main-nav h1 a {
     background: url("/assets/img/logos/xchange-brand.png") 0px 2px no-repeat;
     width: 150px;

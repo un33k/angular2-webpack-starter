@@ -233,10 +233,16 @@ module.exports = {
      *
      * See: https://www.npmjs.com/package/copy-webpack-plugin
      */
-    new CopyWebpackPlugin([{
-      from: 'src/assets',
-      to: 'assets'
-    }]),
+    new CopyWebpackPlugin([
+      {
+        from: 'src/assets',
+        to: 'assets'
+      },
+      {
+        from: 'node_modules/mdi/fonts/',
+        to: 'assets/fonts'
+      }
+    ]),
 
     /*
      * Plugin: HtmlWebpackPlugin
