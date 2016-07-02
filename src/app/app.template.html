@@ -3,20 +3,18 @@
         <h1><a class="md-button md-ink-ripple" [routerLink]="['./home']">xChange Center <sup class="">by Neekware Inc.</sup></a></h1>
         <button class="main-nav-button main-nav-mobile-trigger l-right md-button md-ink-ripple hamberger-icon" type="button" aria-label="View Menu"
             (click)="toggleMainMenu($event)" md-button="md-button">
-                <i class="mdi mdi-menu"></i>
-
-                    <md-icon class="">{{ mainNavIcon }}</md-icon>
+            <md-icon fontIcon="{{ mainNavIcon }}"></md-icon>
         </button>
         <ul [ngClass]="showMainNav? 'is-visible' : ''">
             <li class="l-left">
                 <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['/about']"  [routerLinkActive]="['is-active']">
-	                <md-icon class="main-nav-mobile-trigger">keyboard_arrow_right</md-icon>
+	                <md-icon fontIcon="chevron-right" class="main-nav-mobile-trigger"></md-icon>
                     About
                 </a>
             </li>
             <li class="l-right">
                 <a class="main-nav-button md-button md-ink-ripple" [routerLink]="['/login']"  [routerLinkActive]="['is-active']">
-	                <md-icon class="main-nav-mobile-trigger">keyboard_arrow_right</md-icon>
+	                <md-icon fontIcon="chevron-right" class="main-nav-mobile-trigger"></md-icon>
                     Login
                 </a>
             </li>

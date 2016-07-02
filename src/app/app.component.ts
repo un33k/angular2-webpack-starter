@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 
-import {Subscription} from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
+import {MdIcon, MdIconRegistry} from '@angular2-material/icon/icon';
 
 import { AppState } from './app.service';
 import { topRoutes as knownRoutes} from './app.routes';
@@ -22,7 +23,10 @@ export class App implements OnInit, OnDestroy {
   constructor(
     public appState: AppState,
     private router: Router,
-    private title: Title) {
+    private title: Title,
+    private mdIconRegistry: MdIconRegistry) {
+      // mdIconRegistry.registerFontClassAlias('mdi', 'mdi');
+      mdIconRegistry.setDefaultFontSetClass('mdi');
   }
 
   ngOnInit() {

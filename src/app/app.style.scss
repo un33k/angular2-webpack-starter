@@ -7,11 +7,25 @@ span.active {
   background-color: gray;
 }
 
+// import css from angular.io
 @import 'node_modules/angular.io/public/resources/css/main';
 
+// import css from materialdesignicons (google + contrib)
 $mdi-font-path: "/assets/fonts";
-$mdi-font-size-base: 48px;
-@import 'node_modules/mdi/scss/materialdesignicons.scss';
+$mdi-font-size-base: 32px;
+
+@import "node_modules/mdi/scss/variables";
+@import "node_modules/mdi/scss/functions";
+@import "node_modules/mdi/scss/path";
+@import "node_modules/mdi/scss/core";
+// @import "node_modules/mdi/scss/icons";
+@each $key, $value in $mdi-icons {
+    .#{$key}:before {
+        content: char($value);
+    }
+}
+@import "node_modules/mdi/scss/extras";
+
 
 .main-nav h1 a {
     background: url("/assets/img/logos/xchange-brand.png") 0px 2px no-repeat;
