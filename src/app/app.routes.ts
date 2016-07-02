@@ -1,4 +1,4 @@
-import { Route, provideRouter } from '@angular/router';
+import { RouterConfig, provideRouter } from '@angular/router';
 import { HomeComponent } from './home';
 import { UnfoundComponent } from './unfound';
 
@@ -12,19 +12,32 @@ import { authRoutes, AUTH_PROVIDERS } from './auth/auth.routes';
 
 import { CanDeactivateGuard } from './app.interfaces';
 
-interface AppRouterConfig extends Route {
-  data?: any;
-}
-
-export const topRoutes: Array<AppRouterConfig> = [
-  { path: '', component: HomeComponent },
-  { path: 'home',  component: HomeComponent },
+export const topRoutes: RouterConfig = [
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  { path: 'home',
+    component: HomeComponent
+  },
 
   ...authRoutes,
 
   // make sure you match the component type string to the require in asyncRoutes
-  { path: 'about', component: 'AboutComponent', data: {title: 'About'}, canActivate: [AuthGuard] },
-  { path: '**',    component: UnfoundComponent, data: {title: 'Not Found (404)'} },
+  { path: 'about',
+    component: 'AboutComponent',
+    data: {
+      title: 'About'
+    },
+    canActivate: [AuthGuard]
+  },
+  { path: '**',
+    component: UnfoundComponent,
+    data: {
+      title: 'Not Found (404)'
+    }
+  },
 ];
 
 // Async load a component using Webpack's require with es6-promise-loader and webpack `require`

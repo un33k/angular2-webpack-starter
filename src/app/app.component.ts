@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 
-import { Subscription } from 'rxjs/Subscription';
 import {MdIcon, MdIconRegistry} from '@angular2-material/icon/icon';
 
 import { AppState } from './app.service';
@@ -18,7 +17,7 @@ export class App implements OnInit, OnDestroy {
   name: string = 'xChange Portal';
   showMainNav: boolean = false;
   mainNavIcon: string = 'menu';
-  private subscription: Subscription;
+  private sub: any;
 
   constructor(
     public appState: AppState,
@@ -30,19 +29,18 @@ export class App implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-   this.subscription = this.router.events.subscribe(s => {
+   this.sub = this.router.events.subscribe(s => {
 	    if (s instanceof NavigationEnd) {
         this.title.setTitle(this.getRouteTitle(s.url));
         this.showMainNav = false;
         this.mainNavIcon = 'menu';
         window.scrollTo(0, 0);
-        console.log('router changed ' + s);
       }
     }); 
   }
 
   ngOnDestroy(): any {
-    this.subscription.unsubscribe(); 
+    this.sub.unsubscribe(); 
   }
 
   toggleMainMenu(event) {
@@ -53,11 +51,10 @@ export class App implements OnInit, OnDestroy {
   getRouteTitle(url: string): string {
     var title: string = this.name;
     for (var item of knownRoutes) {
-      if (url == `/${item.path}` && 'data' in item && 'title' in item.data) {
-        title = `${title} | ${item.data.title}`;
-        break;
-      }
-      console.log(title);
+      // if (url == `/${item.path}` && 'data' in item && 'title' in item.data) {
+      //   title = `${title} | ${item.data.title}`;
+      //   break;
+      // }
     }
     return title;
   }
