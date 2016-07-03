@@ -32,7 +32,8 @@ export class AuthComponent {
   }
 
   setMessage() {
-    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+    let status = this.authService.isLoggedIn ? 'in' : 'out';
+    this.message = `You are logged ${status}`;
   }
 
   login() {

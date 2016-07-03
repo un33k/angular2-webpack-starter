@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 
 import {MdIcon, MdIconRegistry} from '@angular2-material/icon/icon';
 
@@ -13,18 +13,18 @@ import { topRoutes as knownRoutes} from './app.routes';
   templateUrl: './app.template.html',
   encapsulation: ViewEncapsulation.None
 })
-export class App implements OnInit, OnDestroy {
+export class App {
   name: string = 'xChange Portal';
   showMainNav: boolean = false;
   mainNavIcon: string = 'menu';
   private sub: any;
 
   constructor(
-    public appState: AppState,
+    private route: ActivatedRoute,
     private router: Router,
     private title: Title,
+	  public appState: AppState,
     private mdIconRegistry: MdIconRegistry) {
-      // mdIconRegistry.registerFontClassAlias('mdi', 'mdi');
       mdIconRegistry.setDefaultFontSetClass('mdi');
   }
 
@@ -51,10 +51,10 @@ export class App implements OnInit, OnDestroy {
   getRouteTitle(url: string): string {
     var title: string = this.name;
     for (var item of knownRoutes) {
-      // if (url == `/${item.path}` && 'data' in item && 'title' in item.data) {
-      //   title = `${title} | ${item.data.title}`;
-      //   break;
-      // }
+      if (url == `/${item.path}` && 'data' in item && 'title' in item.data) {
+        title = `${title} | ${item.data['title']}`;
+        break;
+      }
     }
     return title;
   }
