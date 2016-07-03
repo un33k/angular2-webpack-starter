@@ -47,7 +47,7 @@ export class AuthComponent {
           goto = `/${this.redirect}`;
           this.redirect = '';
         }
-        console.log(goto);
+        // console.log(goto);
         this.router.navigate([goto]);
       }
     });

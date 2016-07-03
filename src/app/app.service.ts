@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+
 import { HmrState } from 'angular2-hmr';
 
 @Injectable()

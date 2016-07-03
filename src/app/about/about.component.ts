@@ -6,12 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './about.template.html'
 })
 export class AboutComponent {
-  constructor() {
+  private dataSub: any;
 
+  constructor() {
   }
 
   ngOnInit() {
-    console.log('hello `About` component');
+    console.log('Init `About` component');
   }
   asyncDataWithWebpack() {
   }
