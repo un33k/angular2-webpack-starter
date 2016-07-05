@@ -14,7 +14,7 @@ import { topRoutes as knownRoutes} from './app.routes';
   encapsulation: ViewEncapsulation.None,
 })
 export class App {
-  name: string = 'xChange Portal';
+  siteName: string = 'xChange Portal';
   showMainNav: boolean = false;
   mainNavIcon: string = 'menu';
   private eventSub: any;
@@ -51,12 +51,16 @@ export class App {
       })
       .map(route => route.snapshot.data)
       .subscribe(data => {
-        this.titleService.setTitle(data['title'] || "xChange Portal");
+        let newTitle = data['title'] || this.siteName;
+        if (newTitle != this.siteName) {
+          newTitle = `${this.siteName} | ${newTitle}`;
+        }
+        this.titleService.setTitle(newTitle);
       });
   }
 
   ngOnDestroy(): any {
-    this.eventSub.unsubscribe(); 
+    this.eventSub.unsubscribe();
   }
 
   toggleMainMenu(event) {

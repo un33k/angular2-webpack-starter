@@ -21,7 +21,7 @@ export class AuthComponent {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      if ('next'in params) {
+      if ('next' in params) {
         this.redirect = params['next'];
       }
     });
@@ -47,7 +47,6 @@ export class AuthComponent {
           goto = `/${this.redirect}`;
           this.redirect = '';
         }
-        // console.log(goto);
         this.router.navigate([goto]);
       }
     });
