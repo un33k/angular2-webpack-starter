@@ -51,6 +51,10 @@ $mdi-font-size-base: 32px;
     width: 32px;
 }
 
+.main-nav ul {
+	background: #0273D4;
+    margin-top: 1px;
+}
 .main-nav ul .main-nav-button {
     padding: 0 22px 0 22px;
 }
@@ -73,7 +77,7 @@ $mdi-font-size-base: 32px;
     margin: 0px;
 }
 
-.is-active {
+.is-active, .hamberger-icon:hover {
     background: #1c5dbb !important;
 }
 
