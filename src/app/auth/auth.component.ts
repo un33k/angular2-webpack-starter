@@ -39,19 +39,35 @@ export class AuthComponent {
   login() {
     this.message = 'Trying to log in ...';
 
-    this.authService.login().subscribe(() => {
-      this.setMessage();
-      if (this.authService.isLoggedIn) {
-        let goto = '/home';
-        if (this.redirect != '') {
-          goto = `/${this.redirect}`;
-          this.redirect = '';
-        }
-        this.router.navigate([goto]);
-      }
-    });
+    this.authService.login().subscribe(
+	    data => this.saveJwt(data.token),
+	    err => this.logError(err)
+    );
   }
 
+  saveJwt(jwt: string) {
+    if (jwt) {
+      localStorage.setItem('authToken', jwt);
+      this.authService.isLoggedIn = true;
+    } else {
+      localStorage.removeItem('authToken');
+    }
+
+    this.setMessage();
+    if (this.authService.isLoggedIn) {
+      let goto = '/home';
+      if (this.redirect != '') {
+        goto = `/${this.redirect}`;
+        this.redirect = '';
+      }
+      this.router.navigate([goto]);
+    }
+  }
+
+  logError(err: any) {
+      console.log(err);
+  }
+ 
   logout() {
     this.authService.logout();
     this.setMessage();

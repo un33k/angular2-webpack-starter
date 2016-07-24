@@ -1,19 +1,35 @@
 import { Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
+
 
 @Injectable()
 export class AuthService {
+  appDomain: string = '';
   isLoggedIn: boolean = false;
+	private headers: Headers = new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+  });
 
-  login() {
-    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
+  constructor (private http: Http) {
+    this.appDomain = localStorage.getItem('domain');
   }
+
+  login(): any {
+    let email = 'admin@simplyfound.info';
+    let password = 'hello';
+
+    let postData = JSON.stringify({ email: email, password: password });
+
+    return this.http.post(`${this.appDomain}/api/auth/token/get/`, postData, {
+	      headers: this.headers
+	    }).map((res: any) => res.json());
+    }
 
   logout() {
     this.isLoggedIn = false;
+    localStorage.removeItem('authToken');
   }
 }
