@@ -3,6 +3,7 @@ import { Headers, Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
+import { APP_MAIN_DOMAIN, APP_API_VERSION } from '../index';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +15,6 @@ export class AuthService {
   });
 
   constructor (private http: Http) {
-    this.appDomain = localStorage.getItem('domain');
   }
 
   login(): any {
@@ -23,7 +23,7 @@ export class AuthService {
 
     let postData = JSON.stringify({ email: email, password: password });
 
-    return this.http.post(`${this.appDomain}/api/auth/token/get/`, postData, {
+    return this.http.post(`${APP_MAIN_DOMAIN}/api/auth/token/get/`, postData, {
 	      headers: this.headers
 	    }).map((res: any) => res.json());
     }

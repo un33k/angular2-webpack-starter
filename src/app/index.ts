@@ -10,4 +10,4 @@ export const APP_PROVIDERS = [
 ];
 
 export const APP_MAIN_DOMAIN = 'http://localhost:8000';
-localStorage.setItem('domain', APP_MAIN_DOMAIN);
+export const APP_API_VERSION = 1;
