@@ -3,3 +3,7 @@
     padding: 29px 48px 66px;
     height: 27px;
 }
+
+md-card {
+    max-width: 600px;
+}

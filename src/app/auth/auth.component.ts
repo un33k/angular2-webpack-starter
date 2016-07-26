@@ -1,22 +1,31 @@
-import { Component }   from '@angular/core';
-import { Router, ActivatedRoute}      from '@angular/router';
+import { Component } from '@angular/core';
+import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
+import { Router, ActivatedRoute }	from '@angular/router';
+
 import { AuthService } from './auth.service';
 
 @Component({
   selector: 'login',
   styleUrls: ['./auth.style.css'],
   templateUrl: './auth.template.html',
+	directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 export class AuthComponent {
   private message: string;
   private sub: any;
   private redirect: string = '';
 
+  private loginForm: FormGroup;
+  private email: FormControl;
+  private password: FormControl;
+
   constructor(
 	  private route: ActivatedRoute,
 	  public router: Router,
-    public authService: AuthService) {
-    this.setMessage();
+    public authService: AuthService,
+    private formBuilder: FormBuilder) {
+      this.setMessage();
+      this.reset();
   }
 
   ngOnInit() {
@@ -36,10 +45,10 @@ export class AuthComponent {
     this.message = `You are logged ${status}`;
   }
 
-  login() {
+  login(credentials) {
     this.message = 'Trying to log in ...';
-
-    this.authService.login().subscribe(
+    console.log(credentials);
+    this.authService.doLogin(credentials).subscribe(
 	    data => this.saveJwt(data.token),
 	    err => this.logError(err)
     );
@@ -68,9 +77,19 @@ export class AuthComponent {
       console.log(err);
   }
  
-  logout() {
-    this.authService.logout();
+  logout(event) {
+    this.authService.doLogout(event);
     this.setMessage();
     this.router.navigate(['/home']);
   }
+
+  reset() {
+    this.email = new FormControl('', Validators.required);
+    this.password = new FormControl('', Validators.required);
+    this.loginForm = this.formBuilder.group({
+      email: this.email,
+      password: this.password
+    });
+  }
+
 }

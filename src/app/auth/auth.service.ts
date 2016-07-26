@@ -17,18 +17,18 @@ export class AuthService {
   constructor (private http: Http) {
   }
 
-  login(): any {
-    let email = 'admin@simplyfound.info';
-    let password = 'hello';
+  doLogin(credentials): any {
 
-    let postData = JSON.stringify({ email: email, password: password });
+    console.log(credentials);
 
+    let postData = JSON.stringify(credentials);
+    console.log(postData);
     return this.http.post(`${APP_MAIN_DOMAIN}/api/auth/token/get/`, postData, {
 	      headers: this.headers
 	    }).map((res: any) => res.json());
     }
 
-  logout() {
+  doLogout(event) {
     this.isLoggedIn = false;
     localStorage.removeItem('authToken');
   }
