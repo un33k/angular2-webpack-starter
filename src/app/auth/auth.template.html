@@ -5,13 +5,13 @@
 </header>
 
 <div class="l-content">
-    <md-card>
-
-        <form [formGroup]="loginForm" (submit)="login(loginForm.value)" novalidate>
-            <input type='text' placeholder='Email' [formControl]="email">
-            <input type='password' placeholder='Password' [formControl]="password">           
-            <button type="submit">Submit</button>
-        </form>
-
-    </md-card>
+    <form [formGroup]="loginForm" (submit)="login(loginForm.value)" novalidate layout="row" layout-align="center end">
+        <table> 
+            <tr>
+                <td><md-input type='text' placeholder='Email' [formControl]="email"></md-input></td>
+                <td><md-input type='password' placeholder='Password' [formControl]="password"></md-input></td>     
+                <td><button md-raised-button color="primary" type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form>
 </div>
